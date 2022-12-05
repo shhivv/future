@@ -7,7 +7,7 @@ export const queryRouter = router({
     .input(z.object({ slug: z.string() }))
     .query(async ({ input }) => {
 
-      const { data, error } = (await supabase.from("content").select().eq("slug", input.slug))
+      const { data } = (await supabase.from("content").select().eq("slug", input.slug))
 
       if(data!.length === 0){
         return {

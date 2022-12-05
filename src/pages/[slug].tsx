@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { trpc } from "../utils/trpc";
 
 export default function Slug(){
@@ -9,7 +8,7 @@ export default function Slug(){
     let { slug } = router.query;
 
     slug = String(slug)
-    let data: any = trpc.query.query.useQuery({slug: slug}).data?.content![0].content
+    const data: any = trpc.query.query.useQuery({slug: slug}).data?.content![0].content
 
     return (
         <>

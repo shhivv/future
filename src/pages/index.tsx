@@ -9,11 +9,11 @@ const Home: NextPage = () => {
   const create = trpc.create.create.useMutation();
 
   const handleCreate = async (text: string, date: Date) => {
-    let slug = (await create.mutateAsync({ text, date } )).slug
+    const slug = (await create.mutateAsync({ text, date } )).slug
 
     Router.push(`/${slug}`)
   }
-  let [form, setForm] = useState({text: "", date: new Date()})
+  const [form, setForm] = useState({text: "", date: new Date()})
   return (
     <>
       <Head>
